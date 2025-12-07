@@ -66,6 +66,7 @@ function loadProgress(percent){
     if(percent < 0)
     {
         offset = 0
+        progressBarValue.value = 0
     }
     else if (percent < 100)
         offset = circleLangth*(1-(percent/100))
