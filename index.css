@@ -1,4 +1,4 @@
-@keyframes rotateAnimation{
+@keyframes --rotateAnimation{
     from{
         rotate: 0deg
     }
@@ -81,7 +81,8 @@ input[type='number']{
     flex-direction: column;
 }
 
-/*Block Section*/
+
+
 .progressBlockSeconderySector{
     min-height: 10%;
     width: 100%;
@@ -102,7 +103,7 @@ input[type='number']{
 .barHeader{
     justify-self: flex-start;
 }
-/*Progress bar*/
+
 .progressBar{
     display: flex;
     justify-content: center;
@@ -122,11 +123,11 @@ input[type='number']{
     fill: transparent;
     transform-origin: center;
     transform: rotate(-90deg);
-    transition: transform;
+    transition: all 0.3s ease-in-out
 }
 
 .animated{
-    animation-name: rotateAnimation;
+    animation-name: --rotateAnimation;
     animation-duration: 1s;
     animation-delay: 0.5s;
     animation-iteration-count: infinite;
@@ -134,9 +135,7 @@ input[type='number']{
     animation-play-state: paused;
 }
 
-/*Progress bar end*/
 
-/*Control list*/
 .controlList{
     display: flex;
     flex-direction: column;
@@ -151,7 +150,7 @@ input[type='number']{
     font-size: var(--currentFontSize);
     margin-bottom: 0.8em;
 }
-/*CheckBox styliztion*/
+
 .checkboxStyle {
     display: none;
 }
@@ -185,9 +184,8 @@ input[type='number']{
 .checkboxStyle:checked + .checkboxStyledLabel {
     background-color: var(--brideColor);
 }
-/*CheckBox styliztion end*/
 
-/*Number input stilization*/
+
 .progressBarValue{
     font-size: var(--currentFontSize);
     width: 3em;
@@ -197,9 +195,8 @@ input[type='number']{
     border: none;
     padding: 0 0.5em;
 }
-/*Number input stilization end*/
+
 
 .controllerName{
     margin-left: 1em;
 }
-/*Control list end*/

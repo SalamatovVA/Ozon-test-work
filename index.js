@@ -8,36 +8,36 @@ let hideController = document.querySelector('.hideController');
 let visabilityState
 let controller
 
-progressBarValue.addEventListener('change', ()=> {loadProgress(progressBarValue.value)})
+progressBarValue.addEventListener('change', ()=> {onLoadProgress(progressBarValue.value)})
 
 animationController.addEventListener('change', ()=> {
-    controller = checkedToBool(animationController)
+    controller = onTurnCheckedToBool(animationController)
     
-    animation(controller, progressCircle)
+    onAnimate(controller, progressCircle)
 })
 
 hideController.addEventListener('change', ()=> {
-    visabilityState = checkedToBool(hideController)
-    changeElementVisability(circleImage, visabilityState)
+    visabilityState = onTurnCheckedToBool(hideController)
+    onChangeElementVisability(circleImage, visabilityState)
 })
 
 window.addEventListener('resize', ()=>{
-    circleSize()
-    loadProgress(progressBarValue.value)
+    onCalculateCircleSize()
+    onLoadProgress(progressBarValue.value)
 })
 
 
-circleSize()
+onCalculateCircleSize()
 
-loadProgress(progressBarValue.value)
-controller = checkedToBool(animationController)
-animation(controller, progressCircle)
-visabilityState = checkedToBool(hideController)
+onLoadProgress(progressBarValue.value)
+controller = onTurnCheckedToBool(animationController)
+onAnimate(controller, progressCircle)
+visabilityState = onTurnCheckedToBool(hideController)
 
-changeElementVisability(circleImage, visabilityState)
+onChangeElementVisability(circleImage, visabilityState)
 
-/*Checkbox to boolean type*/
-function circleSize(){
+
+function onCalculateCircleSize(){
     circleRadius = progressCircle.r.baseVal.value
     
         if(window.innerHeight < window.innerWidth){
@@ -49,7 +49,7 @@ function circleSize(){
     progressCircle.style.strokeDashoffset = circleLangth;
     
 }
-function checkedToBool(checkboxField){
+function onTurnCheckedToBool(checkboxField){
     let controller
     if(checkboxField.checked){
         controller = true
@@ -59,8 +59,8 @@ function checkedToBool(checkboxField){
     }
     return controller
 }
-/*Percentage of load-bar*/
-function loadProgress(percent){
+
+function onLoadProgress(percent){
     let offset = 0
     progressBarValue.value = ""
     if(percent <= 0)
@@ -79,8 +79,8 @@ function loadProgress(percent){
     
     progressCircle.style.strokeDashoffset = offset;
 }
-/*Turn on or off animation*/
-function animation(animationController, progressCircle){
+
+function onAnimate(animationController, progressCircle){
     if (animationController)
     {
         if(!progressCircle.classList.contains("animated")){
@@ -95,8 +95,8 @@ function animation(animationController, progressCircle){
         }
     }
 }
-/*Show or hide chosen element*/
-function changeElementVisability(element, visabilityState){
+
+function onChangeElementVisability(element, visabilityState){
     if (!visabilityState){
         element.style.visibility = 'visible'
     }
