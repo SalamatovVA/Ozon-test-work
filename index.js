@@ -63,7 +63,11 @@ function checkedToBool(checkboxField){
 /*Percentage of load-bar*/
 function loadProgress(percent){
     let offset = 0
-    if (percent < 100)
+    if(percent < 0)
+    {
+        offset = 0
+    }
+    else if (percent < 100)
         offset = circleLangth*(1-(percent/100))
     else{
         offset = circleLangth*(1-(99.9/100))
