@@ -65,7 +65,7 @@ function loadProgress(percent){
     let offset = 0
     if(percent < 0)
     {
-        offset = 0
+        offset = circleLangth
         progressBarValue.value = 0
     }
     else if (percent < 100)
