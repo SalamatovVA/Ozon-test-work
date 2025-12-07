@@ -4,8 +4,8 @@
     }
 
     .progressBlock{
-    min-width: 568px;
-    min-height: 320px;
+    min-width: 50%;
+    min-height: 50%;
     }
 
     .progressBlockSector{

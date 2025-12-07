@@ -16,7 +16,7 @@
 
     --currentDerection: column;
 
-    --currentFontSize: 17px;
+    --currentFontSize: 30px;
 
 }
 
@@ -33,6 +33,11 @@ html{
 body{
     min-height: 100%;
     background-color: var(--paleColor);
+    padding: 15px;
+    
+   
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -40,6 +45,7 @@ p, ul, li, label{
     padding: 0;
     margin: 0;
     font-size: var(--currentFontSize);
+
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -48,19 +54,12 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /*---------*/
-.bodyBlock{
-    padding: 15px;
-    
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-}
+
 .progressBlock{
     background-color: white;
-    min-height: 568px;
-    min-width: 320px;
+    min-height: 50%;
     max-height: 100%;
-    max-width: 100%;
+    width: 100%;
     padding: 10px;
     display: flex;
     flex-direction: var(--currentDerection);
@@ -71,7 +70,6 @@ input[type="number"]::-webkit-inner-spin-button {
     height: 50%;
     margin: 0;
     padding: 0;
-    border: 1px dashed var(--paleColor);
     flex-direction: var(--currentDerection);
     display: flex;
     align-items: center;
