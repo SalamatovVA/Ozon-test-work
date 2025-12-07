@@ -1,11 +1,18 @@
 @media (orientation: landscape){
     :root{
     --currentDerection: row;
+    --currentFontSize: 30px;
     }
 
-    .progressBlock{
-    min-width: 50%;
-    min-height: 50%;
+    .progressBarImage{
+        width: 250px;
+        height: 250px;
+    }
+    .progressBarImageCircle{
+        stroke-width: 15px;
+        cx: 125px;
+        cy: 125px;
+        r: 95px;
     }
 
     .progressBlockSector{

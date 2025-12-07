@@ -1,6 +1,6 @@
-let progressCircle = document.querySelector('.progressBarImageCircle');
-let circleRadius = progressCircle.r.baseVal.value
-let circleLangth = 2 * Math.PI * circleRadius
+let progressCircle = document.querySelector('.progressBarImageCircleFront');
+let circleRadius
+let circleLangth
 let progressBarValue = document.querySelector('.progressBarValue');
 let animationController = document.querySelector('.animationController');
 let circleImage = document.querySelector('.progressBarImage');
@@ -21,9 +21,13 @@ hideController.addEventListener('change', ()=> {
     changeElementVisability(circleImage, visabilityState)
 })
 
+window.addEventListener('orientationchange', ()=>{
+    
+    loadProgress(progressBarValue.value)
+})
 
-progressCircle.style.strokeDasharray = `${circleLangth} ${circleLangth}`;
-progressCircle.style.strokeDashoffset = circleLangth;
+circleSize()
+
 loadProgress(progressBarValue.value)
 controller = checkedToBool(animationController)
 animation(controller, progressCircle)
@@ -32,6 +36,18 @@ visabilityState = checkedToBool(hideController)
 changeElementVisability(circleImage, visabilityState)
 
 /*Checkbox to boolean type*/
+function circleSize(){
+    circleRadius = progressCircle.r.baseVal.value
+    if(window.innerHeight > window.innerWidth){
+        circleRadius/=2
+    }
+    circleLangth = 2 * Math.PI * circleRadius
+    progressCircle.style.strokeDasharray = `${circleLangth} ${circleLangth}`;
+    progressCircle.style.strokeDashoffset = circleLangth;
+    
+    console.log(circleRadius);
+    
+}
 function checkedToBool(checkboxField){
     let controller
     if(checkboxField.checked){
@@ -44,13 +60,15 @@ function checkedToBool(checkboxField){
 }
 /*Percentage of load-bar*/
 function loadProgress(percent){
-    let offset
+    let offset = 0
+    circleSize()
     if (percent < 100)
         offset = circleLangth*(1-(percent/100))
     else{
         offset = circleLangth*(1-(99.9/100))
         progressBarValue.value = 100
     }
+
     progressCircle.style.strokeDashoffset = offset;
 }
 /*Turn on or off animation*/

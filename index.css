@@ -16,7 +16,7 @@
 
     --currentDerection: column;
 
-    --currentFontSize: 30px;
+    --currentFontSize: 60px;
 
 }
 
@@ -105,13 +105,15 @@ input[type="number"]::-webkit-inner-spin-button {
     align-items: center;
 }
 
+
+
 .progressBarImageCircleBack{
     stroke: var(--paleColor);
     fill: transparent;
     transform-origin: center;
 }
 
-.progressBarImageCircle{
+.progressBarImageCircleFront{
     stroke: var(--brideColor);
     fill: transparent;
     transform-origin: center;
