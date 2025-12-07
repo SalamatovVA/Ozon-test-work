@@ -14,8 +14,8 @@
     box-sizing: border-box;
 }
 :root{
-    --brideColor: rgb(47, 69, 196);
-    --paleColor: rgb(188, 198, 252);
+    --brideColor: rgb(14, 58, 255);
+    --paleColor: rgb(230, 237, 255);
 
     --currentDerection: column;
 
