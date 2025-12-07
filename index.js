@@ -43,7 +43,6 @@ function circleSize(){
         if(window.innerHeight < window.innerWidth){
             circleRadius/=2
         }
-    console.log(circleRadius);
     
     circleLangth = 2 * Math.PI * circleRadius
     progressCircle.style.strokeDasharray = `${circleLangth} ${circleLangth}`;
@@ -63,18 +62,21 @@ function checkedToBool(checkboxField){
 /*Percentage of load-bar*/
 function loadProgress(percent){
     let offset = 0
-    if(percent < 0)
+    progressBarValue.value = ""
+    if(percent <= 0)
     {
         offset = circleLangth
         progressBarValue.value = 0
     }
-    else if (percent < 100)
+    else if (percent < 100){
         offset = circleLangth*(1-(percent/100))
+        progressBarValue.value = percent
+    }
     else{
         offset = circleLangth*(1-(99.9/100))
         progressBarValue.value = 100
     }
-
+    
     progressCircle.style.strokeDashoffset = offset;
 }
 /*Turn on or off animation*/
