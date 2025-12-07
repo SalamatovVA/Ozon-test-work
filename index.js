@@ -85,6 +85,7 @@ function animation(animationController, progressCircle){
     }
     else{
         progressCircle.style.animationPlayState = 'paused';
+        progressCircle.style.transform = 'rotate(-90deg)';
     }
 }
 /*Show or hide chosen element*/
