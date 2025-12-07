@@ -1,0 +1,199 @@
+@keyframes rotateAnimation{
+    100%{
+        rotate: 360deg
+    }
+}
+
+*{
+    -webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+    box-sizing: border-box;
+}
+:root{
+    --brideColor: rgb(47, 69, 196);
+    --paleColor: rgb(188, 198, 252);
+
+    --currentDerection: column;
+
+    --currentFontSize: 17px;
+
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+    background-color: var(--paleColor);
+}
+
+
+p, ul, li, label{
+    padding: 0;
+    margin: 0;
+    font-size: var(--currentFontSize);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	display: none;
+}
+
+/*---------*/
+.bodyBlock{
+    padding: 15px;
+    
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.progressBlock{
+    background-color: white;
+    min-height: 568px;
+    min-width: 320px;
+    max-height: 100%;
+    max-width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: var(--currentDerection);
+}
+
+.progressBlockSector{
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+    border: 1px dashed var(--paleColor);
+    flex-direction: var(--currentDerection);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/*Block Section*/
+.progressBlockSeconderySector{
+    min-height: 10%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.progressBlockContentSector{
+    height: 90%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: var(--currentDerection);
+    justify-content: center;
+    align-items: center;
+}
+
+.barHeader{
+    justify-self: flex-start;
+}
+/*Progress bar*/
+.progressBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progressBarImageCircleBack{
+    stroke: var(--paleColor);
+    fill: transparent;
+    transform-origin: center;
+}
+
+.progressBarImageCircle{
+    stroke: var(--brideColor);
+    fill: transparent;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    animation-name: rotateAnimation;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+}
+
+/*Progress bar end*/
+
+/*Control list*/
+.controlList{
+    display: flex;
+    flex-direction: column;
+}
+
+.controlElement{
+    display: flex;
+    align-items: center;
+}
+
+.controlElement:not(:last-child){
+    font-size: var(--currentFontSize);
+    margin-bottom: 0.8em;
+}
+/*CheckBox styliztion*/
+.checkboxStyle {
+    display: none;
+}
+
+.checkboxStyledLabel {
+    font-size: var(--currentFontSize);
+    display: block;
+    position: relative;
+    width: 3em;
+    height: 1.6em;
+    border-radius: 1.2em;
+    background-color: var(--paleColor);
+    cursor: pointer;
+}
+.checkboxStyledLabel:before {
+    content: "";
+    display: block;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 1em;
+    background-color: white;
+    position: absolute;
+    left: 0.2em;
+    top: 0.2em;
+    transition: all 0.2s ease-in-out;
+}
+.checkboxStyle:checked + .checkboxStyledLabel:before {
+    left: 1.6em;
+}
+
+.checkboxStyle:checked + .checkboxStyledLabel {
+    background-color: var(--brideColor);
+}
+/*CheckBox styliztion end*/
+
+/*Number input stilization*/
+.progressBarValue{
+    font-size: var(--currentFontSize);
+    display: block;
+    position: relative;
+    width: 3em;
+    height: 1.6em;
+    border-radius: 1.2em;
+    background-color: var(--paleColor);
+    border: none;
+    padding: 0 0.5em;
+}
+/*Number input stilization end*/
+
+.controllerName{
+    margin-left: 1em;
+}
+/*Control list end*/

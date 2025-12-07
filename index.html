@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ozon тест</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="adaptive.css">
+    </head>
+    <body>
+        <div class="bodyBlock">
+            <div class="progressBlock">
+                <div class="progressBlockSector">
+                    <div class="progressBlockSeconderySector">
+                        <p class="barHeader">Progress</p>
+                    </div>
+                    <div class="progressBlockContentSector">
+                        <div class="progressBar">
+                            <svg class="progressBarImage" width="180px" height = "180px">
+                                <circle class="progressBarImageCircleBack" stroke-width="10px" cx="90px" cy="90px" r="70px"/>
+                                <circle class="progressBarImageCircle" stroke-width="10px" cx="90px" cy="90px" r="70px"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="progressBlockSector">
+                    <div class="progressBlockContentSector">
+                        <ul class="controlList">
+                            <li class="controlElement">
+                                <input type="number" id="progressBarValue" class="progressBarValue" value="40">
+                                <p class="controllerName">Value</p>
+                            </li>
+                            <li class="controlElement">
+                                <input type="checkbox" id="animationController" class="animationController checkboxStyle" checked>
+                                <label for="animationController" class="checkboxStyledLabel" id="animationControllerLabel"></label>
+                                <p class="controllerName">Animate</p>
+                            </li>
+                            <li class="controlElement">
+                                <input type="checkbox" id="hideController" class="hideController checkboxStyle">
+                                <label for="hideController" class="checkboxStyledLabel" id="hideControllerLabel"></label>
+                                <p class="controllerName">Hide</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

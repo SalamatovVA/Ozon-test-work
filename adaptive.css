@@ -1,0 +1,15 @@
+@media (orientation: landscape){
+    :root{
+    --currentDerection: row;
+    }
+
+    .progressBlock{
+    min-width: 568px;
+    min-height: 320px;
+    }
+
+    .progressBlockSector{
+    height: 100%;
+    width: 50%;
+    }
+}
