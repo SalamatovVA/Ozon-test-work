@@ -83,11 +83,16 @@ function loadProgress(percent){
 function animation(animationController, progressCircle){
     if (animationController)
     {
+        if(!progressCircle.classList.contains("animated")){
+            progressCircle.classList.add("animated")
+        }
         progressCircle.style.animationPlayState = 'running';
     }
     else{
         progressCircle.style.animationPlayState = 'paused';
-        progressCircle.style.transform = 'rotate(-90deg)';
+        if(progressCircle.classList.contains("animated")){
+            progressCircle.classList.remove("animated")
+        }
     }
 }
 /*Show or hide chosen element*/
