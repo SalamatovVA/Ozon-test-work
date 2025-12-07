@@ -22,11 +22,12 @@ hideController.addEventListener('change', ()=> {
 })
 
 window.addEventListener('orientationchange', ()=>{
-    
+    circleSize(true)
     loadProgress(progressBarValue.value)
 })
 
-circleSize()
+
+circleSize(false)
 
 loadProgress(progressBarValue.value)
 controller = checkedToBool(animationController)
@@ -36,16 +37,20 @@ visabilityState = checkedToBool(hideController)
 changeElementVisability(circleImage, visabilityState)
 
 /*Checkbox to boolean type*/
-function circleSize(){
+function circleSize(rotated){
     circleRadius = progressCircle.r.baseVal.value
-    if(window.innerHeight > window.innerWidth){
-        circleRadius/=2
+    if (rotated){
+        if(window.innerHeight > window.innerWidth){
+            circleRadius/=2
+        }
+    } else{
+        if(window.innerHeight < window.innerWidth){
+            circleRadius/=2
+        }
     }
     circleLangth = 2 * Math.PI * circleRadius
     progressCircle.style.strokeDasharray = `${circleLangth} ${circleLangth}`;
     progressCircle.style.strokeDashoffset = circleLangth;
-    
-    console.log(circleRadius);
     
 }
 function checkedToBool(checkboxField){
@@ -61,7 +66,6 @@ function checkedToBool(checkboxField){
 /*Percentage of load-bar*/
 function loadProgress(percent){
     let offset = 0
-    circleSize()
     if (percent < 100)
         offset = circleLangth*(1-(percent/100))
     else{

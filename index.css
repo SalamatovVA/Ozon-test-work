@@ -34,8 +34,6 @@ body{
     min-height: 100%;
     background-color: var(--paleColor);
     padding: 15px;
-    
-   
     display: flex;
     justify-content: center;
 }
