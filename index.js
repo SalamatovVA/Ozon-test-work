@@ -21,13 +21,13 @@ hideController.addEventListener('change', ()=> {
     changeElementVisability(circleImage, visabilityState)
 })
 
-window.addEventListener('orientationchange', ()=>{
-    circleSize(true)
+window.addEventListener('resize', ()=>{
+    circleSize()
     loadProgress(progressBarValue.value)
 })
 
 
-circleSize(false)
+circleSize()
 
 loadProgress(progressBarValue.value)
 controller = checkedToBool(animationController)
@@ -37,17 +37,14 @@ visabilityState = checkedToBool(hideController)
 changeElementVisability(circleImage, visabilityState)
 
 /*Checkbox to boolean type*/
-function circleSize(rotated){
+function circleSize(){
     circleRadius = progressCircle.r.baseVal.value
-    if (rotated){
-        if(window.innerHeight > window.innerWidth){
-            circleRadius/=2
-        }
-    } else{
+    
         if(window.innerHeight < window.innerWidth){
             circleRadius/=2
         }
-    }
+    console.log(circleRadius);
+    
     circleLangth = 2 * Math.PI * circleRadius
     progressCircle.style.strokeDasharray = `${circleLangth} ${circleLangth}`;
     progressCircle.style.strokeDashoffset = circleLangth;
