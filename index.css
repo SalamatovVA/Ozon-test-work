@@ -100,6 +100,10 @@ input[type='number']{
     align-items: center;
 }
 
+.progressBlockControlSector{
+    justify-content: flex-start;
+}
+
 .barHeader{
     justify-self: flex-start;
 }
@@ -110,7 +114,9 @@ input[type='number']{
     align-items: center;
 }
 
-
+.progressBarImageCircle{
+    transition: all 0.1s ease-in-out;
+}
 
 .progressBarImageCircleBack{
     stroke: var(--paleColor);
@@ -123,7 +129,7 @@ input[type='number']{
     fill: transparent;
     transform-origin: center;
     transform: rotate(-90deg);
-    transition: all 0.3s ease-in-out
+    
 }
 
 .animated{
@@ -164,6 +170,7 @@ input[type='number']{
     border-radius: 1.2em;
     background-color: var(--paleColor);
     cursor: pointer;
+    
 }
 .checkboxStyledLabel:before {
     content: "";
@@ -175,8 +182,15 @@ input[type='number']{
     position: absolute;
     left: 0.2em;
     top: 0.2em;
+    transition: none;
+}
+
+
+
+.checkboxStyledLabel:hover::before{
     transition: all 0.2s ease-in-out;
 }
+
 .checkboxStyle:checked + .checkboxStyledLabel:before {
     left: 1.6em;
 }

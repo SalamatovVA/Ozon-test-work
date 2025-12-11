@@ -1,23 +1,23 @@
-let progressCircle = document.querySelector('.progressBarImageCircleFront');
+const progressCircle = document.querySelector('.progressBarImageCircleFront');
 let circleRadius
 let circleLangth
-let progressBarValue = document.querySelector('.progressBarValue');
-let animationController = document.querySelector('.animationController');
-let circleImage = document.querySelector('.progressBarImage');
-let hideController = document.querySelector('.hideController');
+const progressBarValue = document.querySelector('.progressBarValue');
+const animationController = document.querySelector('.animationController');
+const circleImage = document.querySelector('.progressBarImage');
+const hideController = document.querySelector('.hideController');
 let visabilityState
 let controller
 
 progressBarValue.addEventListener('change', ()=> {onLoadProgress(progressBarValue.value)})
 
 animationController.addEventListener('change', ()=> {
-    controller = onTurnCheckedToBool(animationController)
+    controller = animationController.checked
     
     onAnimate(controller, progressCircle)
 })
 
 hideController.addEventListener('change', ()=> {
-    visabilityState = onTurnCheckedToBool(hideController)
+    visabilityState = hideController.checked
     onChangeElementVisability(circleImage, visabilityState)
 })
 
@@ -30,34 +30,22 @@ window.addEventListener('resize', ()=>{
 onCalculateCircleSize()
 
 onLoadProgress(progressBarValue.value)
-controller = onTurnCheckedToBool(animationController)
+controller = animationController.checked
 onAnimate(controller, progressCircle)
-visabilityState = onTurnCheckedToBool(hideController)
+visabilityState = hideController.checked
 
 onChangeElementVisability(circleImage, visabilityState)
 
 
 function onCalculateCircleSize(){
+    
     circleRadius = progressCircle.r.baseVal.value
     
-        if(window.innerHeight < window.innerWidth){
-            circleRadius/=2
-        }
     
     circleLangth = 2 * Math.PI * circleRadius
-    progressCircle.style.strokeDasharray = `${circleLangth} ${circleLangth}`;
-    progressCircle.style.strokeDashoffset = circleLangth;
+
     
-}
-function onTurnCheckedToBool(checkboxField){
-    let controller
-    if(checkboxField.checked){
-        controller = true
-    }
-    else {
-        controller = false
-    }
-    return controller
+    
 }
 
 function onLoadProgress(percent){
@@ -76,8 +64,7 @@ function onLoadProgress(percent){
         offset = circleLangth*(1-(99.9/100))
         progressBarValue.value = 100
     }
-    
-    progressCircle.style.strokeDashoffset = offset;
+    progressCircle.style.strokeDasharray = `${circleLangth-offset} ${offset}`;
 }
 
 function onAnimate(animationController, progressCircle){
